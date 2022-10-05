@@ -1,6 +1,6 @@
 # Regex enhancements for Pandas DataFrame / Series
 
-###Installation
+### Installation
 ```python
 pip install a-pandas-ex-regex-enhancements
 ```
@@ -24,7 +24,7 @@ import pandas as pd
 - pandas.DataFrame.ds_regex_search / pandas.Series.ds_regex_search
 - pandas.DataFrame.ds_regex_sub / pandas.Series.ds_regex_sub
 
-###How to use the new methods
+### How to use the new methods
 
 ##### pandas.DataFrame.ds_regex_find_all_special / pandas.Series.ds_regex_find_all_special*
 
