@@ -11,7 +11,7 @@ from a_pandas_ex_plode_tool import (
 )
 from a_pandas_ex_df_to_string import ds_to_string
 from flatten_everything import flatten_everything
-from pandas.core.base import PandasObject
+from pandas.core.frame import DataFrame, Series
 from a_pandas_ex_string_to_dtypes import convert_stringdf_to_df
 import numpy as np
 
@@ -1054,13 +1054,18 @@ def regex_findall_to_multiindex_df(
 
 
 def pd_add_regex_enhancements():
-    PandasObject.ds_trie_regex_search = trie_regex_search
-    PandasObject.ds_trie_regex_sub = trie_regex_sub
-    PandasObject.ds_trie_regex_find_all = trie_regex_find_all
-    PandasObject.ds_regex_find_all = _regex_findall_to_multiindex_df
-    PandasObject.ds_regex_find_all_special = (
-        _regex_find_all_with_position_repeated_capture_groups
-    )
-    PandasObject.ds_regex_search = _regex_search_to_multiindex_df
-    PandasObject.ds_regex_sub = _regex_replace_to_multiindex_df
+    DataFrame.ds_trie_regex_search = trie_regex_search
+    Series.ds_trie_regex_search = trie_regex_search
+    DataFrame.ds_trie_regex_sub = trie_regex_sub
+    Series.ds_trie_regex_sub = trie_regex_sub
+    DataFrame.ds_trie_regex_find_all = trie_regex_find_all
+    Series.ds_trie_regex_find_all = trie_regex_find_all
+    DataFrame.ds_regex_find_all = _regex_findall_to_multiindex_df
+    Series.ds_regex_find_all = _regex_findall_to_multiindex_df
+    DataFrame.ds_regex_find_all_special = _regex_find_all_with_position_repeated_capture_groups
+    Series.ds_regex_find_all_special = _regex_find_all_with_position_repeated_capture_groups
+    DataFrame.ds_regex_search = _regex_search_to_multiindex_df
+    Series.ds_regex_search = _regex_search_to_multiindex_df
+    DataFrame.ds_regex_sub = _regex_replace_to_multiindex_df
+    Series.ds_regex_sub = _regex_replace_to_multiindex_df
 
